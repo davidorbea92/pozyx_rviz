@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(pozyx_ros_examples)
+project(pozyx_rviz)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -188,5 +188,5 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(pose_rviz src/basic_shapes.cpp)
-target_link_libraries(pose_rviz ${catkin_LIBRARIES})
+#add_executable(pose_rviz src/basic_shapes.cpp)
+#target_link_libraries(pose_rviz ${catkin_LIBRARIES})
