@@ -12,13 +12,36 @@ Automatic calibration at this point in time is highly discouraged.
 import pypozyx
 import rospy
 
+#anchor ids
+anchor1_id=rospy.get_param("/anchor1_id")
+anchor2_id=rospy.get_param("/anchor2_id")
+anchor3_id=rospy.get_param("/anchor3_id")
+anchor4_id=rospy.get_param("/anchor4_id")
+
+#anchor coordinates
+anchor1_x=rospy.get_param("/anchor1_x")
+anchor1_y=rospy.get_param("/anchor1_y")
+anchor1_z=rospy.get_param("/anchor1_z")
+
+anchor2_x=rospy.get_param("/anchor2_x")
+anchor2_y=rospy.get_param("/anchor2_y")
+anchor2_z=rospy.get_param("/anchor2_z")
+
+anchor3_x=rospy.get_param("/anchor3_x")
+anchor3_y=rospy.get_param("/anchor3_y")
+anchor3_z=rospy.get_param("/anchor3_z")
+
+anchor4_x=rospy.get_param("/anchor4_x")
+anchor4_y=rospy.get_param("/anchor4_y")
+anchor4_z=rospy.get_param("/anchor4_z")
+
 # adding None will cause the local device to be configured for the anchors as well.
 tag_ids = [None, 0x0001, 0x0002, 0x0003, 0x0004]
 
-anchors = [pypozyx.DeviceCoordinates(0x6866, 1, pypozyx.Coordinates(4550, 0, 2100)),
-           pypozyx.DeviceCoordinates(0x6865, 1, pypozyx.Coordinates(0, 0, 2300)),
-           pypozyx.DeviceCoordinates(0x6831, 1, pypozyx.Coordinates(4550, 2980, 2400)),
-           pypozyx.DeviceCoordinates(0x6854, 1, pypozyx.Coordinates(0, 3020, 1600))]
+anchors = [pypozyx.DeviceCoordinates(anchor1_id, 1, pypozyx.Coordinates(anchor1_x,anchor1_y,anchor1_z)),
+           pypozyx.DeviceCoordinates(anchor2_id, 1, pypozyx.Coordinates(anchor2_x,anchor2_y,anchor2_z)),
+           pypozyx.DeviceCoordinates(anchor3_id, 1, pypozyx.Coordinates(anchor3_x,anchor3_y,anchor3_z)),
+           pypozyx.DeviceCoordinates(anchor4_id, 1, pypozyx.Coordinates(anchor4_x,anchor4_y,anchor4_z))]
 
 
 def set_anchor_configuration():

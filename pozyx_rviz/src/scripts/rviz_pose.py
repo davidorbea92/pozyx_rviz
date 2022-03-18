@@ -4,7 +4,7 @@
 import rospy
 from geometry_msgs.msg import Point32, Point, Pose
 from visualization_msgs.msg import Marker
-global posx, posy, posz, orix, oriy, oriz, oriw
+global posx, posy, posz, orix, oriy, oriz, oriw, size_anchor
 posx=0
 posy=0
 posz=0
@@ -12,6 +12,7 @@ orix=0
 oriy=0
 oriz=0
 oriw=0
+size_anchor=0.5
 
 class MarkerBasics(object):
 	global posx, posy, posz, orix, oriy, oriz, oriw
@@ -22,6 +23,7 @@ class MarkerBasics(object):
 		self.init_marker(index=0,z_val=0)
 	
 	def init_marker(self, index=0, z_val=0):
+		#Marker for tag		
 		self.marker_object=Marker()
 		self.marker_object.header.frame_id="/my_frame"
 		self.marker_object.header.stamp=rospy.get_rostime()
@@ -52,7 +54,6 @@ class MarkerBasics(object):
 		
 	def start(self):
 		while not rospy.is_shutdown():
-			#print(posx)
 			self.marker_object.pose.position.x=posx/1000
 			self.marker_object.pose.position.y=posy/1000
 			self.marker_object.pose.position.z=posz/1000

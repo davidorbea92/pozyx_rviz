@@ -14,7 +14,8 @@ import rospy
 from geometry_msgs.msg import Point, Pose, Quaternion
 
 #remote_id = None
-remote_id=0x6833
+remote_id=rospy.get_param("/remote_tag_id")
+#remote_id=0x6833
 
 def pozyx_pose_pub():
     pub = rospy.Publisher('pozyx_pose', Pose, queue_size=40)

@@ -4,6 +4,9 @@
     <arg name="launch_rviz" default="true"/>
     <arg name="file_rviz" default="tag_visualizer"/>
 
+    <!-- load of parameters -->
+    <rosparam command="load" file="$(find pozyx_rviz)/config/ids.yaml" />
+
     <!-- node launching -->
     <node name="marker_basic_node" pkg="pozyx_rviz" type="rviz_pose.py" output="screen"/>
     <node name="pozyx_pose_node" pkg="pozyx_rviz" type="pose_pub.py" output="screen"/>
